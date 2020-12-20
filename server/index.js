@@ -5,10 +5,13 @@ const PORT = process.env.PORT || 3001;
 const db = require("./models/db");
 const cors = require("cors");
 
+const path = require('path')
+
 // let port = 3001;
 // if (process.env.PORT) {
 //   port = process.env.PORT
 // }
+
 app.use("/", express.static(path.join(__dirname, '../frontend/build')));
 app.use(cors());
 app.use(bodyParser.json());
