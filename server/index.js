@@ -9,7 +9,7 @@ const cors = require("cors");
 // if (process.env.PORT) {
 //   port = process.env.PORT
 // }
-
+app.use("/", express.static(path.join(__dirname, '../frontend/build')));
 app.use(cors());
 app.use(bodyParser.json());
 
