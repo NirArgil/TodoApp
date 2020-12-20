@@ -13,13 +13,8 @@ const todoSchema = new mongoose.Schema({
     type: Boolean, 
     default: false, 
   },
-  counter: {
-    
-    type: Number, 
-    default: 0, 
-  },
   edited: {     
-    type: String,
+    type: Boolean,
   },
 
 })
