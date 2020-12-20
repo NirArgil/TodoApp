@@ -16,7 +16,6 @@ function App() {
     });
 
 
-
   useEffect(() => {
     const fetchTodoAndSetTodos = async () => {
     const todos = await APIHelper.getAllTodos()
