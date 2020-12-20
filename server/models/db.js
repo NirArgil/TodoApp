@@ -1,5 +1,13 @@
 const mongoose = require("mongoose")
-mongoose.connect("mongodb+srv://Nir:1234567n@cluster0.umvm5.mongodb.net/Project1?authSource=admin&replicaSet=atlas-pwnszh-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true", {
+
+let dbUrl = 'mongodb://localhost:27017/';
+
+if(process.env.db_url) {
+  dbUrl = process.env.db_url;
+}
+
+
+mongoose.connect(dbUrl, {
   // connecting to the mongodb database locally
   
   keepAlive: true, // keeping the connection alive
