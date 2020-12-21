@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3001/todos/";
+const API_URL = "/todos";
 
 async function createTodo(task) {
   const { data: newTodo } = await axios.post(API_URL, {
@@ -8,7 +8,7 @@ async function createTodo(task) {
   })
   
   return newTodo
-  
+
 }
 
 async function deleteTodo(id) {
