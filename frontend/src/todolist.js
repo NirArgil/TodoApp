@@ -26,10 +26,10 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed, edit}, i) => (
                 <Li>        
                 <div id="task"  
-                    contentEditable="true">    {task} </div>
+                    ref={ Context.editAbleRef } >    {task} </div>
             
                     <button  onClick={e => Context.deleteTodo(e, _id)}> [X] </button>
-
+                          <button  onClick= {Context.onButtonClick}> save edit task</button>
                     <button key={i} 
                     onClick={e => Context.editTodo(e, _id)}> save </button>
             

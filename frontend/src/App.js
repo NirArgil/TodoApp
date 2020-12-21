@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import "./App.css"
 import APIHelper from "./APIHelper.js"
 import Todo from "./Todo";
@@ -10,11 +10,20 @@ function App() {
   const [count, setCount] = useState(0)
   const [todoRemaining, setTodoRemaining] = useState(0);
   
+  // function editAble(){
+    const editAbleRef = useRef(null); 
+    const onButtonClick = () => {
+      editAbleRef.current.innerText();
+     };
+
 
   useEffect(() => { 
     setTodoRemaining(todos.filter(todo => !todo.completed).length) 
     });
-
+  
+  useEffect(() => { 
+    setTodoRemaining(todos.filter(todo => !todo.completed).length) 
+    });
 
   useEffect(() => {
     const fetchTodoAndSetTodos = async () => {
@@ -94,7 +103,7 @@ function App() {
 
   const Context = {editTodo, todos, 
     setTodos, setTodo, createTodo, deleteTodo,
-     updateTodo, count, todoRemaining,}
+     updateTodo, count, todoRemaining, editAbleRef, onButtonClick}
 
   return (
     <AppContext.Provider value={Context}>
