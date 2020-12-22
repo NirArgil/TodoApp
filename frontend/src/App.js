@@ -21,9 +21,9 @@ function App() {
     setTodoRemaining(todos.filter(todo => !todo.completed).length) 
     });
   
-  useEffect(() => { 
-    setTodoRemaining(todos.filter(todo => !todo.completed).length) 
-    });
+  // useEffect(() => { 
+  //   setTodoRemaining(todos.filter(todo => !todo.completed).length) 
+  //   });
 
   useEffect(() => {
     const fetchTodoAndSetTodos = async () => {
