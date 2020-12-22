@@ -13,7 +13,7 @@ function App() {
   // function editAble(){
     const editAbleRef = useRef(null); 
     const onButtonClick = () => {
-      editAbleRef.current.innerText();
+      editAbleRef.current.innerText;
      };
 
 

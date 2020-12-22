@@ -26,6 +26,7 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed, edit}, i) => (
                 <Li>        
                 <div id="task"  
+                    contentEditable = "true"
                     ref={ Context.editAbleRef } >    {task} </div>
             
                     <button  onClick={e => Context.deleteTodo(e, _id)}> [X] </button>
