@@ -30,7 +30,9 @@ export default function Todolist() {
                     ref={ Context.editAbleRef } >    {task} </div>
             
                     <button  onClick={e => Context.deleteTodo(e, _id)}> [X] </button>
-                          <button  onClick= {Context.onButtonClick}> save edit task</button>
+
+                    <button  onClick= {Context.onButtonClick}> save edit task</button>
+                    
                     <button key={i} 
                     onClick={e => Context.editTodo(e, _id)}> save </button>
             
