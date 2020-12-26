@@ -17,17 +17,25 @@ const CreateButton = styled.button`
     background-color: #003399;
     border: 2px solid #003399;
     cursor: pointer;
-    }`
+    }
+    
+
+
+     @media (max-width: 640px) {
+      font-size: 9px;
+     }
+
+    `
      
-     const Container = styled.div`
-       margin: 70px auto;
-       width: 800px;
-       display: flex;
-       justify-content: center;
-       flex-direction: column;
-       align-items: center;
-       align-content: center;
-       background-color: rgba(47, 108, 240, 0.5);
+    const Container = styled.div`
+     margin: 70px auto;
+     width: 800px;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     align-items: center;
+     align-content: center;
+     background-color: rgba(47, 108, 240, 0.5);
       `
        const TodoInput = styled.input`
        padding: 10px;
@@ -52,7 +60,7 @@ export default function InputComponent() {
           onChange={({ target }) => Context.setTodo(target.value)} />
         
         <CreateButton onClick={Context.createTodo}>
-          Create Task!
+         Create Task!
         </CreateButton>
 
       <h2> Tasks: { Context.TodoTasks }</h2>  

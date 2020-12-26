@@ -19,7 +19,6 @@ import Header from "./header"
   flex-direction: column;
   align-items: center;
   align-content: center;
-  background-color: rgba(47, 108, 240, 0.5);
   `
 
 export default function Todo() {

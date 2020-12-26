@@ -7,9 +7,9 @@ const cors = require("cors");
 
 const path = require('path')
 
-// let port = 3001;
+// let PORT = 3001;
 // if (process.env.PORT) {
-//   port = process.env.PORT
+//   PORT = process.env.PORT
 // }
 
 app.use("/", express.static(path.join(__dirname, '../frontend/build')));
