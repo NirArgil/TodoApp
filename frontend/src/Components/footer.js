@@ -2,7 +2,7 @@ import React from 'react';
 import styled, {css} from "styled-components";
 
 const H3 = styled.h3`
-background-color: green;
+color: green;
 `
 
 export default function Footer() {

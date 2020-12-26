@@ -4,26 +4,26 @@ import APIHelper from "./APIHelper.js"
 import Todo from "./Components/Todo";
 import { AppContext } from "./AppContext";
 
-function App() {
+export default function App() {
   const [todos, setTodos] = useState([])
   const [todo, setTodo] = useState("")
   const [count, setCount] = useState(0)
   const [todoRemaining, setTodoRemaining] = useState(0);
+  const [TodoTasks, setTodoTasks] = useState(0);
   
-  function editAble(){
+  
     const editAbleRef = useRef(null); 
     const onButtonClick = () => {
-      console.log(editAbleRef.innerText)
+      console.log(editAbleRef.current.innerText)
      };
-
 
   useEffect(() => { 
     setTodoRemaining(todos.filter(todo => !todo.completed).length) 
     });
   
-  // useEffect(() => { 
-  //   setTodoRemaining(todos.filter(todo => !todo.completed).length) 
-  //   });
+  useEffect(() => { 
+    setTodoTasks(todos.filter(todo => todo).length) 
+    });
 
   useEffect(() => {
     const fetchTodoAndSetTodos = async () => {
@@ -92,6 +92,7 @@ function App() {
     setTodos(todos.map(todo => (todo._id === id ? updatedTodo : todo)))
   }
 
+
   const editTodo = async (e, id) => {
     e.stopPropagation()
     const edit = {
@@ -102,8 +103,8 @@ function App() {
   }
 
   const Context = {editTodo, todos, 
-    setTodos, setTodo, createTodo, deleteTodo,
-     updateTodo, count, todoRemaining, editAbleRef, onButtonClick, editAble, }
+    setTodos, setTodo, createTodo, deleteTodo, TodoTasks,
+     updateTodo, count, todoRemaining, editAbleRef, onButtonClick, editAbleRef }
 
   return (
     <AppContext.Provider value={Context}>
@@ -117,7 +118,7 @@ function App() {
     
     </AppContext.Provider>
     
-  )
-}
+  ) 
 
-export default App
+ }
+

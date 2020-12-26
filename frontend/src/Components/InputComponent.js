@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import styled, {css} from "styled-components"
-import "./App.css"
+import "../App.css"
 import { AppContext } from '../AppContext.js'
 
  

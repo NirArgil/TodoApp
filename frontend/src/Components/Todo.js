@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import "./App.css"
+import "../App.css"
 import APIHelper from "../APIHelper.js" 
 import "../App"  
 import InputComponent from "./InputComponent"
