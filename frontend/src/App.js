@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import "./App.css"
 import APIHelper from "./APIHelper.js"
-import Todo from "./Todo";
+import Todo from "./Components/Todo";
 import { AppContext } from "./AppContext";
 
 function App() {
@@ -10,10 +10,10 @@ function App() {
   const [count, setCount] = useState(0)
   const [todoRemaining, setTodoRemaining] = useState(0);
   
-  // function editAble(){
+  function editAble(){
     const editAbleRef = useRef(null); 
     const onButtonClick = () => {
-      console.log(editAbleRef.current.innerText())
+      console.log(editAbleRef.innerText)
      };
 
 
@@ -103,7 +103,7 @@ function App() {
 
   const Context = {editTodo, todos, 
     setTodos, setTodo, createTodo, deleteTodo,
-     updateTodo, count, todoRemaining, editAbleRef, onButtonClick}
+     updateTodo, count, todoRemaining, editAbleRef, onButtonClick, editAble, }
 
   return (
     <AppContext.Provider value={Context}>

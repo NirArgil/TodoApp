@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from "react"
 import "./App.css"
-import APIHelper from "./APIHelper.js" 
-import "./App"  
+import APIHelper from "../APIHelper.js" 
+import "../App"  
 import InputComponent from "./InputComponent"
 import styled, {css} from "styled-components"
-import { AppContext } from "./AppContext"
+import { AppContext } from "../AppContext"
 import Todolist  from "./todolist"
+import Footer from "./footer"
+import Header from "./header"
 
 
 
@@ -26,10 +28,12 @@ export default function Todo() {
 return (
   <Container>
       
+      <Header></Header>
       <InputComponent> </InputComponent>
       <Todolist></Todolist>
+      <Footer></Footer>
 
-</Container>
+  </Container>
 
  )
 }

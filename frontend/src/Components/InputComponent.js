@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import styled, {css} from "styled-components"
 import "./App.css"
-import { AppContext } from './AppContext.js'
+import { AppContext } from '../AppContext.js'
 
  
 const CreateButton = styled.button`
@@ -43,7 +43,7 @@ export default function InputComponent() {
 
     return (
         <div>
-        <h1> Todo App </h1>
+        
          <TodoInput
           placeholder="Type Here"
           id="todo-input"
