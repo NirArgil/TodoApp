@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
-let dbUrl = 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false';
-
+let dbUrl = 'mongodb://localhost:27017/todo-app?readPreference=primary&appname=MongoDB%20Compass&ssl=false';
+        
 if(process.env.db_url) {
   dbUrl = process.env.db_url;
 }

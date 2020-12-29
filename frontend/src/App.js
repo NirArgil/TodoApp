@@ -14,7 +14,7 @@ export default function App() {
   
     const editAbleRef = useRef(null); 
     const onButtonClick = () => {
-      console.log(editAbleRef.current.innerText)
+      console.log(this.refs.textarea.innerText)
      };
 
   useEffect(() => { 
@@ -104,7 +104,7 @@ export default function App() {
 
   const Context = {editTodo, todos, 
     setTodos, setTodo, createTodo, deleteTodo, TodoTasks,
-     updateTodo, count, todoRemaining, editAbleRef, onButtonClick, editAbleRef }
+     updateTodo, count, todoRemaining, editAbleRef, onButtonClick, }
 
   return (
     <AppContext.Provider value={Context}>
