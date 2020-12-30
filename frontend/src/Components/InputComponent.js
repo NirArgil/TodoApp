@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import styled, {css} from "styled-components"
 import "../App.css"
-import { RiCheckboxFill } from 'react-icons/ri';
+import { GoDiffAdded } from 'react-icons/ri';
 import { AppContext } from '../AppContext.js'
 
 
@@ -64,7 +64,7 @@ export default function InputComponent() {
           onChange={({ target }) => Context.setTodo(target.value)} />
         
         <CreateButton onClick={Context.createTodo}>
-        <RiCheckboxFill size = { 40 }  />
+        <GoDiffAdded size = { 40 }  />
         </CreateButton>
 
       <h2> Tasks: { Context.TodoTasks }</h2>  

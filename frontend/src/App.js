@@ -10,13 +10,7 @@ export default function App() {
   const [count, setCount] = useState(0)
   const [todoRemaining, setTodoRemaining] = useState(0);
   const [TodoTasks, setTodoTasks] = useState(0);
-  
-  
-    const editAbleRef = useRef(null); 
-    const onButtonClick = () => {
-      console.log(this.refs.textarea.innerText)
-     };
-
+ 
   useEffect(() => { 
     setTodoRemaining(todos.filter(todo => !todo.completed).length) 
     });
@@ -104,7 +98,7 @@ export default function App() {
 
   const Context = {editTodo, todos, 
     setTodos, setTodo, createTodo, deleteTodo, TodoTasks,
-     updateTodo, count, todoRemaining, editAbleRef, onButtonClick, }
+     updateTodo, count, todoRemaining, editAbleRef, handleChange, handleBlur, }
 
   return (
     <AppContext.Provider value={Context}>
