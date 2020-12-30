@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import styled, {css} from "styled-components"
+import { AiTwotoneDelete } from 'react-icons/ai';
+import { RiCheckboxFill } from 'react-icons/ri';
 import { AppContext } from '../AppContext.js'
 
 
@@ -29,17 +31,15 @@ export default function Todolist() {
                     contentEditable = "true"
                     ref={ Context.editAbleRef } >    {task} </div>
             
-                    <button  onClick={e => Context.deleteTodo(e, _id)}> [X] </button>
+                    <button  onClick={e => Context.deleteTodo(e, _id)}> <AiTwotoneDelete /> </button>
 
-                    <button  onClick={() => {
+                    {/* <button  onClick={() => {
                      console.log(Context.editAbleRef.current.innerText);}}> save edit task</button>
-                    
-                    <button key={i} 
-                    onClick={e => Context.editTodo(e, _id)}> save </button>
+                     */}
             
                     <button key={i}
                     onClick={e => Context.updateTodo(e, _id)}
-                    className={completed ? "completed" : ""} > DONE </button>          
+                    className={completed ? "completed" : ""} > <RiCheckboxFill /> </button>          
                     </Li>
                 ))}
             </Ul>
