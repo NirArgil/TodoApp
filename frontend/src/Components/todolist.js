@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext, useRef } from "react"
 import styled, {css} from "styled-components"
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { RiCheckboxFill } from 'react-icons/ri';
@@ -24,7 +24,7 @@ padding: 0;
 
 export default function Todolist() {
     const Context = useContext(AppContext)
-    const editAbleRef = useRef(''); 
+    const editAbleRef = useRef(null); 
     
     const handleChange = evt => {
         editAbleRef.current = evt.target.value;

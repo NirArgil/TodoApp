@@ -98,7 +98,7 @@ export default function App() {
 
   const Context = {editTodo, todos, 
     setTodos, setTodo, createTodo, deleteTodo, TodoTasks,
-     updateTodo, count, todoRemaining, editAbleRef, handleChange, handleBlur, }
+     updateTodo, count, todoRemaining, }
 
   return (
     <AppContext.Provider value={Context}>
