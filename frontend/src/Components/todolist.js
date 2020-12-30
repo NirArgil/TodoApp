@@ -24,31 +24,31 @@ padding: 0;
 
 export default function Todolist() {
     const Context = useContext(AppContext)
-    const editAbleRef = useRef(null); 
+    const EditAbleRef = useRef(''); 
     
     const handleChange = evt => {
-        editAbleRef.current = evt.target.value;
+        EditAbleRef.current = evt.target.value;
     };
  
     const handleBlur = () => {
-      console.log(editAbleRef.current);
+      console.log(EditAbleRef.current);
     };
     
     return (
         <div>
             <Ul>
-            {Context.todos.map(({ _id, task, completed, edit}, i) => (
+            {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
                  
-                  html={editAbleRef.current}
-                  onBlur={handleBlur} 
-                  onChange={handleChange} 
-                  id="task">
+                   html={EditAbleRef.current}
+                   onBlur={handleBlur} 
+                   onChange={handleChange} 
+                   id="task">
                     
-                {task}
+                  {task}
                 
-                </ContentEditable>
+                 </ContentEditable>
                     
             
                     <button  onClick={e => Context.deleteTodo(e, _id)}> <AiTwotoneDelete size = { 20 } /> </button>
