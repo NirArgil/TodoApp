@@ -1,31 +1,33 @@
 import React, { useState, useEffect, useContext } from 'react'
 import styled, {css} from "styled-components"
 import "../App.css"
+import { RiCheckboxFill } from 'react-icons/ri';
 import { AppContext } from '../AppContext.js'
 
 
  
 const CreateButton = styled.button`
-    padding: 10px;
-    font-size: 16px;
-    margin: 10px;
+    outline: none;
+    position: relative;
+    top: 14px;
+    left: 16px;
+    padding: 3px;
+    font-size: 1px;
+    margin: 20px;
     margin-right: 0px;
     background-color: #0066FF;
     color: #FFF;
     border-radius: 5px;
-    border: 2px solid #0066FF;
+    border: 0px solid #0066FF;
     &:hover {
     background-color: #003399;
-    border: 2px solid #003399;
-    cursor: pointer;
-    }
-    
-
+    border: 0px solid #003399;
+    cursor: pointer;}
+   
 
      @media (max-width: 640px) {
       font-size: 9px;
      }
-
     `
      
     const Container = styled.div`
@@ -40,6 +42,7 @@ const CreateButton = styled.button`
       `
        const TodoInput = styled.input`
        padding: 10px;
+       margin-right: -10px;
        font-size: 14px;
        border: 2px solid #FFF;
        border-radius: 5px;
@@ -61,7 +64,7 @@ export default function InputComponent() {
           onChange={({ target }) => Context.setTodo(target.value)} />
         
         <CreateButton onClick={Context.createTodo}>
-        Create Task
+        <RiCheckboxFill size = { 40 }  />
         </CreateButton>
 
       <h2> Tasks: { Context.TodoTasks }</h2>  

@@ -31,7 +31,7 @@ export default function Todolist() {
                     contentEditable = "true"
                     ref={ Context.editAbleRef } >    {task} </div>
             
-                    <button  onClick={e => Context.deleteTodo(e, _id)}> <AiTwotoneDelete /> </button>
+                    <button  onClick={e => Context.deleteTodo(e, _id)}> <AiTwotoneDelete size = { 20 } /> </button>
 
                     {/* <button  onClick={() => {
                      console.log(Context.editAbleRef.current.innerText);}}> save edit task</button>
@@ -39,7 +39,7 @@ export default function Todolist() {
             
                     <button key={i}
                     onClick={e => Context.updateTodo(e, _id)}
-                    className={completed ? "completed" : ""} > <RiCheckboxFill /> </button>          
+                    className={completed ? "completed" : ""} > <RiCheckboxFill size = { 20 } /> </button>          
                     </Li>
                 ))}
             </Ul>
