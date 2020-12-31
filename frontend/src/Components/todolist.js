@@ -38,7 +38,7 @@ export default function Todolist() {
                 contentEditable
                 ref={editableRef}
                 spellCheck={false}
-                onPaste={(e) => {
+                onBlur={(e) => {
                 e.preventDefault();
                 const text = e.clipboardData.getData("text");
                 editableRef.current.innerText = text;}}>
