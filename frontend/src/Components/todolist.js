@@ -39,7 +39,7 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <div
-                 
+                   contentEditable="true"
                    onChange={handleChange}
                    onBlur={handleChange}
                    id="task" >
