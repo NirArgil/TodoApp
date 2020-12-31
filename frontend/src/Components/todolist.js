@@ -40,8 +40,8 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-
-                   html={EditAbleRef}
+                   dangerouslySetInnerHTML={{__html: EditAbleRef.text}}
+                  
                    onBlur={handleBlur} 
                    onChange={handleChange}
                    id="task">
@@ -53,10 +53,7 @@ export default function Todolist() {
             
                     <button  onClick={e => Context.deleteTodo(e, _id)}> <AiTwotoneDelete size = { 20 } /> </button>
 
-                    {/* <button  onClick={() => {
-                     console.log(Context.editAbleRef.current.innerText);}}> save edit task</button>
-                     */}
-            
+                   
                     <button key={i}
                     onClick={e => Context.updateTodo(e, _id)}
                     className={completed ? "completed" : ""} > <RiCheckboxFill size = { 20 } /> </button>          
