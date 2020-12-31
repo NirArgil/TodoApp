@@ -24,19 +24,10 @@ padding: 0;
 
 export default function Todolist() {
      const Context = useContext(AppContext)
-     const editAbleRef = useRef('');
- 
-     const handleChange = evt => {
-         editAbleRef.current = evt.target.value;
-        };
- 
-    const handleBlur = () => {
-            console.log(editAbleRef.current);
-        };
-    // function createMarkup() {
-    //     return {__html: EditAbleRef.current};
-    //   };
-      
+    
+     const handleChange = e => {
+        setTodo(e.target.value);
+      };
       
     return (
         <div>
@@ -47,6 +38,7 @@ export default function Todolist() {
                    contenteditable="true"
                    ref={editAbleRef}
                    onChange={handleChange}
+                   onBlur={handleChange}
                    id="task" >
                     
                   {task }
