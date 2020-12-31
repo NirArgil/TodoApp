@@ -34,9 +34,9 @@ export default function Todolist() {
       console.log(EditAbleRef.current);
     };
     
-    function createMarkup() {
-        return {__html: EditAbleRef.current};
-      };
+    // function createMarkup() {
+    //     return {__html: EditAbleRef.current};
+    //   };
       
       
     return (
@@ -45,7 +45,7 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-                   dangerouslySetInnerHTML={createMarkup()}
+                   
                    onBlur={handleBlur} 
                    onChange={handleChange}
                    id="task">
