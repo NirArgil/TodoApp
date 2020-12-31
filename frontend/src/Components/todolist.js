@@ -43,7 +43,7 @@ export default function Todolist() {
 
                 //  dangerouslySetInnerHTML={EditAbleRef.current}
                    onBlur={handleBlur} 
-                   onChange={e => setTodo(e.target.value)}
+                   onChange={e => Context.setTodo(e.target.value)}
                    id="task">
                     
                   {task}
