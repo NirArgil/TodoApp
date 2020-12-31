@@ -4,6 +4,7 @@ import { AiTwotoneDelete } from 'react-icons/ai'
 import { RiCheckboxFill } from 'react-icons/ri'
 import { AppContext } from '../AppContext.js'
 import ContentEditable from 'react-contenteditable'
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 const Li = styled.li`
 color: rgb(39, 37, 35);
@@ -45,8 +46,8 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-                   ref={editAbleRef}
-                   dangerouslySetInnerHTML = {{ __html: editAbleRef.current }}
+                   
+                  { ...ReactHtmlParser(html)  =  editAbleRef.current  }
                    onChange={handleChange}
                    onBlur={handleChange}
                    id="task" >
