@@ -24,39 +24,25 @@ padding: 0;
 
 export default function Todolist() {
     const Context = useContext(AppContext)
-    
-    const text = useRef('');
-
-    // const handleChange = evt => {
-    //    EditAbleRef.current = evt.target.value;
-    // };
- 
-    // const handleBlur = () => {
-    //   console.log(EditAbleRef.current);
-    // };
-    
+    const editAbleRef = useRef('');
 
    
  
-        const handleChange = evt => {
-            text.current = evt.target.value;
+    const handleChange = evt => {
+            editAbleRef.current = evt.target.value;
         };
  
-        const handleBlur = () => {
-            console.log(text.current);
+    const handleBlur = () => {
+            console.log(editAbleRef.current);
         };
-    // function createMarkup() {
-    //     return {__html: EditAbleRef.current};
-    //   };
-      
-      
+   
     return (
         <div>
             <Ul>
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-                   html={text.current} 
+                //    html={editAbleRef.current} 
                    onBlur={handleBlur} 
                    onChange={handleChange}
                    id="task">
