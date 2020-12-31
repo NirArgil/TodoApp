@@ -46,7 +46,7 @@ export default function Todolist() {
                 <Li>        
                  <ContentEditable
                    ref={editAbleRef}
-                   dangerouslySetInnerHTML = { __html.editAbleRef.current }
+                   dangerouslySetInnerHTML = {{ __html: editAbleRef.current }}
                    onChange={handleChange}
                    onBlur={handleChange}
                    id="task" >
