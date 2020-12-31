@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react"
 import styled, {css} from "styled-components"
-import { AiTwotoneDelete } from 'react-icons/ai';
-import { RiCheckboxFill } from 'react-icons/ri';
+import { AiTwotoneDelete } from 'react-icons/ai'
+import { RiCheckboxFill } from 'react-icons/ri'
 import { AppContext } from '../AppContext.js'
 import ContentEditable from 'react-contenteditable'
 
@@ -40,10 +40,10 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-                 
-                 dangerouslySetInnerHTML={{__html: EditAbleRef.current}}
+
+                //  dangerouslySetInnerHTML={EditAbleRef.current}
                    onBlur={handleBlur} 
-                   onChange={handleChange} 
+                   onChange={e => setTodo(e.target.value)}
                    id="task">
                     
                   {task}
