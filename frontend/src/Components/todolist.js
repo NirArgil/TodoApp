@@ -32,13 +32,24 @@ export default function Todolist() {
              console.log(editAbleRef.current);
         };
 
+        // componentDidUpdate(todo) {
+        //     // Typical usage (don't forget to compare props):
+        //     if (this.props._id !== todo.id) {
+        //       this.fetchData(this.props.userID);
+        //     }
+        //   }
+
+        function createMarkup() {
+            return {__html: editAbleRef.current};
+          };
+
     return (
         <div>
             <Ul>
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-                   html={editAbleRef.current}
+                   dangerouslySetInnerHTML = { createMarkup() }
                    onChange={handleChange}
                    onBlur={handleChange}
                    id="task" >
