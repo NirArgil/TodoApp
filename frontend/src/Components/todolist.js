@@ -23,7 +23,8 @@ padding: 0;
 export default function Todolist() {
     const Context = useContext(AppContext)
     const editAbleRef = useRef(null);
- 
+    const htmlParse = editAbleRef.current;
+
         const handleChange = evt => {
           editAbleRef.current = evt.target.value;
         };
@@ -46,8 +47,8 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-                   
-                  { ...ReactHtmlParser(html)  =  editAbleRef.current  }
+                 
+                  { ...ReactHtmlParser(htmlParse) }
                    onChange={handleChange}
                    onBlur={handleChange}
                    id="task" >
