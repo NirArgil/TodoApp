@@ -41,7 +41,7 @@ export default function Todolist() {
                 <Li>        
                  <ContentEditable
                  
-                   html={EditAbleRef.current}
+                 dangerouslySetInnerHTML={EditAbleRef.current}
                    onBlur={handleBlur} 
                    onChange={handleChange} 
                    id="task">
