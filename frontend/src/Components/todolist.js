@@ -49,7 +49,7 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-                   dangerouslySetInnerHTML = { createMarkup() }
+                   dangerouslySetInnerHTML = { __html.editAbleRef.current }
                    onChange={handleChange}
                    onBlur={handleChange}
                    id="task" >
