@@ -21,7 +21,6 @@ padding: 0;
 
 export default function Todolist() {
     const Context = useContext(AppContext)
-
     const editAbleRef = useRef('');
  
         const handleChange = evt => {
@@ -39,16 +38,14 @@ export default function Todolist() {
         //     }
         //   }
 
-        function createMarkup() {
-            return {__html: editAbleRef.current};
-          };
-
+       
     return (
         <div>
             <Ul>
             {Context.todos.map(({ _id, task, completed,__html,}, i) => (
                 <Li>        
                  <ContentEditable
+                   ref={editAbleRef}
                    dangerouslySetInnerHTML = { __html.editAbleRef.current }
                    onChange={handleChange}
                    onBlur={handleChange}
