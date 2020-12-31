@@ -24,16 +24,27 @@ padding: 0;
 
 export default function Todolist() {
     const Context = useContext(AppContext)
-    const EditAbleRef = useRef(''); 
     
-    const handleChange = evt => {
-       EditAbleRef.current = evt.target.value;
-    };
+    const text = useRef('');
+
+    // const handleChange = evt => {
+    //    EditAbleRef.current = evt.target.value;
+    // };
  
-    const handleBlur = () => {
-      console.log(EditAbleRef.current);
-    };
+    // const handleBlur = () => {
+    //   console.log(EditAbleRef.current);
+    // };
     
+
+   
+ 
+        const handleChange = evt => {
+            text.current = evt.target.value;
+        };
+ 
+        const handleBlur = () => {
+            console.log(text.current);
+        };
     // function createMarkup() {
     //     return {__html: EditAbleRef.current};
     //   };
@@ -45,7 +56,7 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-                   
+                   html={text.current} 
                    onBlur={handleBlur} 
                    onChange={handleChange}
                    id="task">
