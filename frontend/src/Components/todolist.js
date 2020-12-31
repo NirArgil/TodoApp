@@ -24,7 +24,7 @@ padding: 0;
 
 export default function Todolist() {
      const Context = useContext(AppContext)
-     const editAbleRef = useRef(null);
+     const editAbleRef = useRef('');
  
      const handleChange = evt => {
          editAbleRef.current = evt.target.value;
@@ -44,12 +44,12 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <div
-                 contenteditable="true"
+                   contenteditable="true"
                    ref={editAbleRef}
                    onChange={handleChange}
-                   id="task">
+                   id="task" >
                     
-                  {task}
+                  {task }
                 
                  </div>
                     
