@@ -27,21 +27,25 @@ export default function Todolist() {
     const EditAbleRef = useRef(''); 
     
     const handleChange = evt => {
-      Context.setTodo(evt.target.value);
+        Context.EditAbleRef.current = evt.target.value;
     };
  
     const handleBlur = () => {
-      console.log(EditAbleRef.current);
+      console.log(Context.EditAbleRef.current);
     };
     
+    function createMarkup() {
+        return {__html: Context.EditAbleRef.current};
+      }
+      
+      
     return (
         <div>
             <Ul>
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <ContentEditable
-                   dangerouslySetInnerHTML={{__html: EditAbleRef.text}}
-                  
+                   dangerouslySetInnerHTML={createMarkup()}
                    onBlur={handleBlur} 
                    onChange={handleChange}
                    id="task">
