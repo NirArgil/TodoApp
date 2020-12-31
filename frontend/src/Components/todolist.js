@@ -44,6 +44,7 @@ export default function Todolist() {
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
                  <div
+                 contenteditable="true"
                    ref={editAbleRef}
                    onChange={handleChange}
                    id="task">
