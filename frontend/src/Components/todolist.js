@@ -23,29 +23,35 @@ padding: 0;
 `
 
 export default function Todolist() {
-    const Context = useContext(AppContext)
-    const editableRef = useRef('');
-
-   
-   
+     const Context = useContext(AppContext)
+     const editAbleRef = useRef('');
+ 
+     const handleChange = evt => {
+            editAbleRef.current = evt.target.value;
+        };
+ 
+    const handleBlur = () => {
+            console.log(editAbleRef.current);
+        };
+    // function createMarkup() {
+    //     return {__html: EditAbleRef.current};
+    //   };
+      
+      
     return (
         <div>
             <Ul>
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
-                 <div
-                suppressContentEditableWarning
-                contentEditable
-                ref={editableRef}
-                spellCheck={false}
-                onBlur={(e) => {
-                e.preventDefault();
-                const text = e.clipboardData.getData("text");
-                editableRef.current.innerText = text;}}>
+                 <ContentEditable
+                   html={editAbleRef.current} 
+                   onBlur={handleBlur} 
+                   onChange={handleChange}
+                   id="task">
                     
                   {task}
                 
-                 </div>
+                 </ContentEditable>
                     
             
                     <button  onClick={e => Context.deleteTodo(e, _id)}> <AiTwotoneDelete size = { 20 } /> </button>
