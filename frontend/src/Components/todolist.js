@@ -27,16 +27,16 @@ export default function Todolist() {
     const EditAbleRef = useRef(''); 
     
     const handleChange = evt => {
-        Context.EditAbleRef.current = evt.target.value;
+       EditAbleRef.current = evt.target.value;
     };
  
     const handleBlur = () => {
-      console.log(Context.EditAbleRef.current);
+      console.log(EditAbleRef.current);
     };
     
     function createMarkup() {
-        return {__html: Context.EditAbleRef.current};
-      }
+        return {__html: EditAbleRef.current};
+      };
       
       
     return (
