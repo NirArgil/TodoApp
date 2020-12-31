@@ -22,8 +22,8 @@ padding: 0;
 
 export default function Todolist() {
     const Context = useContext(AppContext)
-    const editAbleRef = useRef(null);
-    const htmlParse = editAbleRef.current;
+    const editAbleRef = useRef('');
+    
 
         const handleChange = evt => {
           editAbleRef.current = evt.target.value;
@@ -32,30 +32,21 @@ export default function Todolist() {
         const handleBlur = () => {
              console.log(editAbleRef.current);
         };
-
-        // componentDidUpdate(todo) {
-        //     // Typical usage (don't forget to compare props):
-        //     if (this.props._id !== todo.id) {
-        //       this.fetchData(this.props.userID);
-        //     }
-        //   }
-
        
     return (
         <div>
             <Ul>
             {Context.todos.map(({ _id, task, completed,}, i) => (
                 <Li>        
-                 <ContentEditable
-                 
-                  { ...ReactHtmlParser(htmlParse) }
+                 <div
+                 dangerouslySetInnerHTML = {{ __html: editAbleRef.current }}
                    onChange={handleChange}
                    onBlur={handleChange}
                    id="task" >
 
                   {task }
                 
-                 </ContentEditable>
+                 </div>
                     
             
                     <button  onClick={e => Context.deleteTodo(e, _id)}> <AiTwotoneDelete size = { 20 } /> </button>
