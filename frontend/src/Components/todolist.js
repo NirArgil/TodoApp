@@ -27,7 +27,7 @@ export default function Todolist() {
     const EditAbleRef = useRef(''); 
     
     const handleChange = evt => {
-       setTodo(evt.target.value);
+      Context.setTodo(evt.target.value);
     };
  
     const handleBlur = () => {
