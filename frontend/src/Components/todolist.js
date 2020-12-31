@@ -46,7 +46,7 @@ export default function Todolist() {
     return (
         <div>
             <Ul>
-            {Context.todos.map(({ _id, task, completed,}, i) => (
+            {Context.todos.map(({ _id, task, completed,__html,}, i) => (
                 <Li>        
                  <ContentEditable
                    dangerouslySetInnerHTML = { __html.editAbleRef.current }
