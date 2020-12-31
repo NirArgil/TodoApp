@@ -24,9 +24,10 @@ padding: 0;
 
 export default function Todolist() {
      const Context = useContext(AppContext)
-    
+     const editAbleRef = useRef('');
+
      const handleChange = e => {
-        setTodo(e.target.value);
+        Context.setTodo(e.target.value);
       };
       
     return (
