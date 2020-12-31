@@ -27,7 +27,7 @@ export default function Todolist() {
     const EditAbleRef = useRef(''); 
     
     const handleChange = evt => {
-        EditAbleRef.current = evt.target.value;
+       setTodo(evt.target.value);
     };
  
     const handleBlur = () => {
@@ -41,9 +41,9 @@ export default function Todolist() {
                 <Li>        
                  <ContentEditable
 
-                //  dangerouslySetInnerHTML={EditAbleRef.current}
+                   html={EditAbleRef}
                    onBlur={handleBlur} 
-                   onChange={e => Context.setTodo(e.target.value)}
+                   onChange={handleChange}
                    id="task">
                     
                   {task}
