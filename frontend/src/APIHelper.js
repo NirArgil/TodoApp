@@ -1,6 +1,9 @@
 import axios from "axios";
+let API_URL = "/todos/";
 
-const API_URL = "/todos/";
+if(process.env.NODE_ENV === 'development'){
+  API_URL = 'http://localhost:3001/todos/';
+}
 
 async function createTodo(task) {
   const { data: newTodo } = await axios.post(API_URL, {

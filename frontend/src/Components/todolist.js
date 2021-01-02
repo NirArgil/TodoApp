@@ -4,7 +4,6 @@ import { AiTwotoneDelete } from 'react-icons/ai'
 import { RiCheckboxFill } from 'react-icons/ri'
 import { AppContext } from '../AppContext.js'
 import ContentEditable from 'react-contenteditable'
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 const Li = styled.li`
 color: rgb(39, 37, 35);
@@ -27,27 +26,30 @@ export default function Todolist() {
 
         const handleChange = evt => {
           editAbleRef.current = evt.target.value;
+        //   const change = e => {
+        //      Context.editTodo(e, _id)
+        //   }
+          // create put to update db
         };
  
-        const handleBlur = () => {
-             console.log(editAbleRef.current);
+        const handleBlur = evt => {
+            Context.setTodo(evt.target.value);
         };
        
     return (
         <div>
             <Ul>
             {Context.todos.map(({ _id, task, completed,}, i) => (
-                <Li>        
-                 <div
-                   ref={editAbleRef}
-                   contentEditable="true"
+                <Li key={i}>        
+                 <ContentEditable
+                   innerRef={editAbleRef.current}
+                   html={`${task}`}
                    onChange={handleChange}
-                   onBlur={handleChange}
-                   id="task" >
+                   onBlur={ handleBlur  }
+                   id={`${_id}`}>
 
-                  {task }
                 
-                 </div>
+                 </ContentEditable>
                     
             
                     <button  onClick={e => Context.deleteTodo(e, _id)}> <AiTwotoneDelete size = { 20 } /> </button>

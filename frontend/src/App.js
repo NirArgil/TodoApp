@@ -90,13 +90,14 @@ export default function App() {
   const editTodo = async (e, id) => {
     e.stopPropagation()
     const edit = {
-      edited: !todos.find(todo => todo._id === id).edited,
+      edited: !todos.find(todo => todo._id === id).edited
+
     }
     const editedTodo = await APIHelper.editTodo(id, edit)
     setTodos(todos.map(todo => (todo._id === id ? editedTodo : todo)))
   }
 
-  const Context = {editTodo, todos, 
+  const Context = {editTodo, todos,
     setTodos, setTodo, createTodo, deleteTodo, TodoTasks,
      updateTodo, count, todoRemaining, }
 

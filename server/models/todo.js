@@ -14,7 +14,8 @@ const todoSchema = new mongoose.Schema({
     default: false, 
   },
   edited: {     
-    type: Boolean,
+    type: String,
+    
   },
 
 })
