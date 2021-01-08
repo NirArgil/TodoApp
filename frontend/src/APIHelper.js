@@ -24,8 +24,11 @@ async function updateTodo(id, payload) {
   return newTodo
 }
 
-async function editTodo(id, edit) {
-  const { data: newTodo } = await axios.put(`${API_URL}${id}`, edit)
+async function editTodo(id, task) {
+  const { data: newTodo } = await axios.put(`${API_URL}${id}`, 
+    task,
+  ) 
+
   return newTodo
 }
 

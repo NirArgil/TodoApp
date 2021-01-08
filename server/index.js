@@ -42,6 +42,7 @@ app.post("/todos", async (req, res, next) => {
 
 app.put("/todos/:id", async (req, res, next) => {
   try {
+    console.log(req.body)
     const todo = await db.Todo.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     });

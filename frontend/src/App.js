@@ -27,6 +27,7 @@ export default function App() {
     fetchTodoAndSetTodos()
   }, [])     
 
+
   const createTodo = async e => {
     e.preventDefault()
     if (!todo) {
@@ -87,14 +88,11 @@ export default function App() {
   }
 
 
-  const editTodo = async (e, id) => {
+  const editTodo = async (e, id, task) => {
     e.stopPropagation()
-    const edit = {
-      edited: !todos.find(todo => todo._id === id).edited
-
-    }
-    const editedTodo = await APIHelper.editTodo(id, edit)
-    setTodos(todos.map(todo => (todo._id === id ? editedTodo : todo)))
+    const newTodo = await APIHelper.editTodo(id, task);
+    
+    setTodos(todos.map(todo => (todo.id === id ? newTodo : todo)))
   }
 
   const Context = {editTodo, todos,
@@ -116,4 +114,5 @@ export default function App() {
   ) 
 
  }
+ 
 

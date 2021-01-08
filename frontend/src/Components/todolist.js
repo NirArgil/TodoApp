@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react"
+import React, { useContext, useRef } from "react"
 import styled, {css} from "styled-components"
 import { AiTwotoneDelete } from 'react-icons/ai'
 import { RiCheckboxFill } from 'react-icons/ri'
@@ -24,40 +24,41 @@ export default function Todolist() {
     const editAbleRef = useRef('');
     
 
-        const handleChange = evt => {
-          editAbleRef.current = evt.target.value;
-        //   const change = e => {
-        //      Context.editTodo(e, _id)
-        //   }
-          // create put to update db
+        const handleChange = e => {
+          editAbleRef.current = e.target.value;
+         
         };
  
-        const handleBlur = evt => {
-            Context.setTodo(evt.target.value);
-        };
+        const handleBlur = e => { Context.setTodo(e.target.value) };
+        
+        
        
+        
     return (
         <div>
             <Ul>
-            {Context.todos.map(({ _id, task, completed,}, i) => (
+            {Context.todos.map((todo, i) => (
                 <Li key={i}>        
                  <ContentEditable
                    innerRef={editAbleRef.current}
-                   html={`${task}`}
+                   html={`${todo.task }`}
                    onChange={handleChange}
-                   onBlur={ handleBlur  }
-                   id={`${_id}`}>
-
+                   onBlur={ e => { 
+                     e.stopPropagation();
+                     Context.editTodo(e, todo._id,{...todo, task:e.target.innerText} ) } }  
+                   
+                   id={`${todo._id}`}>
+        
                 
                  </ContentEditable>
                     
             
-                    <button  onClick={e => Context.deleteTodo(e, _id)}> <AiTwotoneDelete size = { 20 } /> </button>
+                    <button  onClick={e => Context.deleteTodo(e, todo._id)}> <AiTwotoneDelete size = { 20 } /> </button>
 
                    
                     <button key={i}
-                    onClick={e => Context.updateTodo(e, _id)}
-                    className={completed ? "completed" : ""} > <RiCheckboxFill size = { 20 } /> </button>          
+                    onClick={e => Context.updateTodo(e, todo._id)}
+                    className={todo.completed ? "completed" : ""} > <RiCheckboxFill size = { 20 } /> </button>          
                     </Li>
                 ))}
             </Ul>
