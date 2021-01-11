@@ -5,9 +5,19 @@ import { RiCheckboxFill } from 'react-icons/ri'
 import { AppContext } from '../AppContext.js'
 import ContentEditable from 'react-contenteditable'
 
+
 const Li = styled.li`
+
+min-height: 70px;
+
+  border: 3px solid white;
+  flex: 1 1 auto;
+  line-height: -10px;
+  text-align: center;
 color: rgb(39, 37, 35);
-background-color: rgba(255, 96, 5, 0.863);
+margin: auto 10px;
+padding: 9px 140px;
+box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 padding: 5px;
 margin-bottom: 10px;
 border-radius: 10px;
@@ -17,6 +27,9 @@ width: 200px;
 `
 const Ul = styled.ul`
 padding: 0;
+margin: 20px auto;
+  display: flex;
+  flex-flow: row wrap;
 `
 
 export default function Todolist() {
@@ -28,8 +41,6 @@ export default function Todolist() {
           editAbleRef.current = e.target.value;
          
         };
- 
-        const handleBlur = e => { Context.setTodo(e.target.value) };
         
         
        
@@ -52,7 +63,7 @@ export default function Todolist() {
                 
                  </ContentEditable>
                     
-            
+                   <br /> 
                     <button  onClick={e => Context.deleteTodo(e, todo._id)}> <AiTwotoneDelete size = { 20 } /> </button>
 
                    
