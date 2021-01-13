@@ -46,7 +46,7 @@ export default function Todolist() {
         };       
         
     return (
-        <div className="Ul">
+        <div>
             <Ul>
             {Context.todos.map((todo, i) => (
                 <Li key={i}>        
