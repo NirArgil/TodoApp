@@ -28,9 +28,12 @@ width: 200px;
 const Ul = styled.ul`
 padding: 0;
 margin: 20px auto;
-  display: flex;
-  flex-flow: row wrap;
-`
+display: flex;
+flex-flow: row wrap;
+
+  @media (max-width: 600px) {
+    flex-flow: column wrap;
+}`
 
 export default function Todolist() {
     const Context = useContext(AppContext)
@@ -40,13 +43,10 @@ export default function Todolist() {
         const handleChange = e => {
           editAbleRef.current = e.target.value;
          
-        };
-        
-        
-       
+        };       
         
     return (
-        <div>
+        <div className="Ul">
             <Ul>
             {Context.todos.map((todo, i) => (
                 <Li key={i}>        

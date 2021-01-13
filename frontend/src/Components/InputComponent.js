@@ -25,7 +25,7 @@ const CreateButton = styled.button`
     cursor: pointer;}
    
 
-     @media (max-width: 640px) {
+     @media (max-width: 600px) {
       font-size: 9px;
      }
     `
@@ -40,14 +40,18 @@ const CreateButton = styled.button`
      align-content: center;
      background-color: rgba(47, 108, 240, 0.5);
       `
-       const TodoInput = styled.input`
+    const TodoInput = styled.input`
        padding: 10px;
        margin-right: -10px;
        font-size: 14px;
        border: 2px solid #FFF;
        border-radius: 5px;
        width: 250px;
-       `
+
+       @media (max-width: 600px) {
+        width: 150px;
+         }
+       ` 
 
 export default function InputComponent() { 
    
