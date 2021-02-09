@@ -1,4 +1,5 @@
 # TodoApp
+To-Do daily tasks App.
 
 CRUD Web Application;
 
